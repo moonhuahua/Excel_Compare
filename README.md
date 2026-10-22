@@ -1,3 +1,5 @@
+<img src="assets/Excel_Compare.png" width="80" height="80" alt="Excel_Compare 图标" />
+
 # Excel_Compare
 
 Windows Excel 双栏对比工具，基于 [skanmera/ExcelMerge](https://github.com/skanmera/ExcelMerge) 修改，保留上游 MIT 许可。

@@ -1,0 +1,14 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildToolsPath)\Sdks\Microsoft.NET.Sdk.WindowsDesktop\targets\Microsoft.WinFX.targets"
+          Condition="('$(MSBuildProjectName)' == 'ExcelMerge.GUI' or '$(MSBuildProjectName)' == 'FastWpfGrid' or $(MSBuildProjectName.Contains('_wpftmp'))) and Exists('$(MSBuildToolsPath)\Sdks\Microsoft.NET.Sdk.WindowsDesktop\targets\Microsoft.WinFX.targets')" />
+  <Target Name="GenerateSatelliteAssemblies" Condition="'@(_SatelliteAssemblyResourceInputs)' != ''">
+    <MakeDir Directories="$(IntermediateOutputPath)%(_SatelliteAssemblyResourceInputs.Culture)" />
+    <WriteLinesToFile File="$(IntermediateOutputPath)%(_SatelliteAssemblyResourceInputs.Culture)\SatelliteInfo.cs"
+                     Lines="[assembly: System.Reflection.AssemblyCulture(&quot;%(_SatelliteAssemblyResourceInputs.Culture)&quot;)]"
+                     Overwrite="true" />
+    <Csc TargetType="Library" NoStandardLib="true" References="@(ReferencePath)"
+         Sources="$(IntermediateOutputPath)%(_SatelliteAssemblyResourceInputs.Culture)\SatelliteInfo.cs"
+         Resources="@(_SatelliteAssemblyResourceInputs)"
+         OutputAssembly="$(IntermediateOutputPath)%(_SatelliteAssemblyResourceInputs.Culture)\$(TargetName).resources.dll" />
+  </Target>
+</Project>

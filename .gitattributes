@@ -1,0 +1,7 @@
+* -text
+*.exe binary
+*.zip binary
+*.xlsx binary
+*.xls binary
+*.docx binary
+*.ico binary

@@ -1,0 +1,19 @@
+# Local build outputs and dependency caches
+/build/
+/src/packages/
+/src/Build/
+**/bin/
+**/obj/
+/tests/evidence/
+/验证结果/
+**/__pycache__/
+*.pyc
+*.pdb
+*.user
+*.suo
+*.log
+*_临时.*
+# Binaries and portable archives are distributed through GitHub Releases.
+/发布/*.exe
+/发布/*.zip
+/tests/*.exe
